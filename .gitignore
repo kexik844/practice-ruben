@@ -1,0 +1,9 @@
+.venv/
+venv/
+.env
+!.env.example
+__pycache__/
+*.py[cod]
+*.sqlite3
+.coverage
+.pytest_cache/
