@@ -49,3 +49,17 @@ System check identified no issues (0 silenced).
 | POST /api/requests/ | 201, status=new (передан completed) |
 
 Последний POST выполнен на отдельной временной базе и не изменил исходные данные или демонстрационный набор.
+
+## Повторная проверка после исправления HTML-интерфейса DRF
+
+Воспроизведён AssertionError при запросах списка категорий и услуг категории с Accept: text/html. Добавлены два регрессионных теста; до исправления оба падали. Автоматическая HTML-форма фильтров для CategoryViewSet отключена, а фильтрация вложенного списка услуг по query-параметрам сохранена.
+
+Команда: `python manage.py test catalog -v 1`.
+
+```text
+Ran 18 tests in 0.094s
+OK
+System check identified no issues (0 silenced).
+```
+
+Все 18 тестов прошли. Дополнительно выполнен `python manage.py check`: ошибок нет.

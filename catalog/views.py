@@ -46,6 +46,9 @@ class CategoryViewSet(ProtectedDeleteMixin, ServiceQueryMixin, ModelViewSet):
     queryset = Category.objects.all().order_by('id')
     serializer_class = CategorySerializer
     permission_classes = [IsAdminOrReadOnly]
+    # The browsable API renders filters against Category, not Service.
+    # Nested services are filtered explicitly by filter_services().
+    filter_backends = []
 
     def filter_queryset(self, queryset):
         return queryset

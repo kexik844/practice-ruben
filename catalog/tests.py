@@ -157,3 +157,15 @@ class CatalogAPITests(APITestCase):
         with self.assertNumQueries(2): # COUNT + SELECT JOIN; anonymous request
             response = self.client.get(reverse('service-list'))
             self.assertEqual(response.status_code, 200)
+
+    def test_browsable_category_list(self):
+        response = self.client.get(reverse('category-list'), HTTP_ACCEPT='text/html')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('text/html', response['Content-Type'])
+
+    def test_browsable_category_services(self):
+        url = reverse('category-services', args=[self.cat.pk])
+        response = self.client.get(url, {'min_price': 500}, HTTP_ACCEPT='text/html')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data['count'], 3)
+        self.assertIn('text/html', response['Content-Type'])
