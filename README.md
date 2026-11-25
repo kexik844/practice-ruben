@@ -120,9 +120,14 @@ Remove-Item Env:TEST_ADMIN_PASSWORD
 
 - [Сценарии и отчёт о проверке](docs/TEST_REPORT.md)
 - [Порядок демонстрации преподавателю](docs/DEMO.md)
-- [GitHub Actions](https://github.com/kexik844/practice-ruben/actions)
 
-Статус: восемь сценариев ранее прошли в браузере с тестовыми ответами API. Проверка с настоящим Django должна быть подтверждена успешным запуском Playwright, а не предварительными скриншотами. В GitHub Actions предусмотрена автоматическая проверка на чистой учебной базе.
+Результат проверки на чистой учебной базе: Django API, сборка Vite и все восемь сценариев Playwright успешно прошли. В восьмом сценарии ответ 500 имитируется для проверки восстановления после ошибки.
+
+## Скриншоты
+
+![Каталог услуг](docs/screenshots/01-catalog-1280.png)
+
+[Карточка услуги](docs/screenshots/02-service-1280.png) · [Форма заявки](docs/screenshots/03-request-1280.png) · [Мобильная версия](docs/screenshots/04-catalog-390.png) · [Управление каталогом](docs/screenshots/05-admin-1280.png)
 
 ## История Git
 
