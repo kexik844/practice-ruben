@@ -7,3 +7,8 @@ __pycache__/
 *.sqlite3
 .coverage
 .pytest_cache/
+node_modules/
+dist/
+playwright-report/
+test-results/
+.DS_Store
